@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مستندات تغییرات فیلتر M15 - نسخه نهایی</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            padding: 30px;
+            direction: rtl;
+            color: #fff;
+            line-height: 1.8;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        h1 {
+            text-align: center;
+            color: #00d4ff;
+            margin-bottom: 15px;
+            font-size: 3em;
+            text-shadow: 0 0 30px rgba(0,212,255,0.6);
+        }
+        h2 {
+            color: #ffd700;
+            margin: 40px 0 20px;
+            font-size: 2em;
+            border-bottom: 2px solid rgba(255,215,0,0.3);
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #4ecdc4;
+            margin: 30px 0 15px;
+            font-size: 1.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #a0a0a0;
+            margin-bottom: 40px;
+            font-size: 1.3em;
+        }
+        .section {
+            background: rgba(255,255,255,0.03);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 25px 0;
+            border-left: 5px solid #00d4ff;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255,255,255,0.02);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .comparison-table thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .comparison-table th {
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+        .comparison-table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .comparison-table tbody tr:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        .old-version {
+            background: rgba(255,107,107,0.2);
+            border-left: 4px solid #ff6b6b;
+        }
+        .new-version {
+            background: rgba(74,222,128,0.2);
+            border-left: 4px solid #4ade80;
+        }
+        .code-block {
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .formula {
+            background: rgba(100,100,255,0.1);
+            border: 1px solid rgba(100,100,255,0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            color: #a0cfff;
+        }
+        ul, ol {
+            margin: 15px 0;
+            padding-right: 30px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .highlight {
+            background: rgba(255,215,0,0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #ffd700;
+            font-weight: bold;
+        }
+        .note {
+            background: rgba(255,140,0,0.15);
+            border: 2px solid rgba(255,140,0,0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .warning {
+            background: rgba(255,0,0,0.15);
+            border: 2px solid rgba(255,0,0,0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .success {
+            background: rgba(0,255,0,0.15);
+            border: 2px solid rgba(0,255,0,0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .icon {
+            font-size: 1.2em;
+            margin-left: 10px;
+        }
+        .flow-chart {
+            background: rgba(0,0,0,0.2);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        .flow-step {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px auto;
+            max-width: 600px;
+            border: 2px solid;
+        }
+        .flow-step.filter0 { border-color: #ff6b6b; }
+        .flow-step.aligned { border-color: #4ade80; }
+        .flow-step.reversed { border-color: #ffd93d; }
+        .flow-step.reject { border-color: #888; }
+        .arrow {
+            text-align: center;
+            font-size: 2em;
+            color: #00d4ff;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>📋 مستندات تغییرات فیلتر M15</h1>
+    <div class="subtitle">نسخه نهایی - به‌روزرسانی فوریه 2026</div>
+    
+    <div class="section">
+        <h2><span class="icon">📌</span>خلاصه تغییرات</h2>
+        <p>فیلتر M15 ربات معاملاتی با هدف بهبود دقت و کاهش معاملات نامطلوب به‌روزرسانی شده است. تغییرات اصلی شامل افزودن <span class="highlight">فیلتر صفر</span> و سخت‌تر کردن شرایط <span class="highlight">Reversed</span> می‌باشد.</p>
+    </div>
+
+    <div class="section">
+        <h2><span class="icon">🔄</span>مقایسه نسخه قدیم و جدید</h2>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>ویژگی</th>
+                    <th>نسخه قدیم (S2)</th>
+                    <th>نسخه جدید (نهایی)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>فیلتر صفر</strong></td>
+                    <td class="old-version">❌ وجود ندارد</td>
+                    <td class="new-version">✅ اضافه شد<br>body&lt;30% AND wick&gt;60% AND range&lt;70%avg</td>
+                </tr>
+                <tr>
+                    <td><strong>همروند (Aligned)</strong></td>
+                    <td class="old-version">EXECUTE_ORIGINAL</td>
+                    <td class="new-version">EXECUTE_ALIGNED<br>(همان منطق، نام تغییر کرد)</td>
+                </tr>
+                <tr>
+                    <td><strong>شرایط Reversed</strong></td>
+                    <td class="old-version">فقط: body &gt; 50%</td>
+                    <td class="new-version">سه شرط:<br>
+                        1️⃣ body ≥ 55%<br>
+                        2️⃣ close در 30% انتهایی<br>
+                        3️⃣ range ≥ میانگین 20 کندل
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>محاسبه میانگین</strong></td>
+                    <td class="old-version">❌ استفاده نمی‌شد</td>
+                    <td class="new-version">✅ میانگین رنج 20 کندل قبلی M15</td>
+                </tr>
+                <tr>
+                    <td><strong>تعداد کندل‌های دریافتی</strong></td>
+                    <td class="old-version">2 کندل M15</td>
+                    <td class="new-version">22 کندل M15<br>(20 برای میانگین + 1 تکمیل‌شده + 1 در حال تشکیل)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2><span class="icon">🎯</span>قوانین فیلتر نهایی</h2>
+        
+        <h3>1️⃣ فیلتر صفر (Filter Zero) - جدید</h3>
+        <p>این فیلتر کندل‌های بی‌معنی را شناسایی و رد می‌کند.</p>
+        
+        <div class="formula">
+<strong>شرایط رد کردن کندل:</strong>
+هر سه شرط زیر باید برقرار باشد:
+
+• body_ratio = abs(close - open) / (high - low) < 0.30
+• wick_ratio = (high - low - body) / (high - low) > 0.60
+• range_ratio = (high - low) / avg_range_20 < 0.70
+
+اگر هر سه شرط True باشد → REJECT (کندل بی‌معنی)
+        </div>
+
+        <div class="note">
+            <strong>💡 توضیح:</strong><br>
+            کندل‌هایی که بدنه کوچک (&lt;30%)، فیتیله بلند (&gt;60%)، و رنج کمتر از میانگین (&lt;70%) دارند، نشان‌دهنده بی‌تصمیمی و نوسان بی‌جهت هستند و نباید برای تصمیم‌گیری استفاده شوند.
+        </div>
+
+        <h3>2️⃣ همروند (Aligned)</h3>
+        <p>اگر جهت کندل M15 با جهت سیگنال یکسان باشد:</p>
+        
+        <div class="code-block">
+سیگنال BUY  + M15 صعودی (bullish)  → EXECUTE_ALIGNED ✅
+سیگنال SELL + M15 نزولی (bearish)   → EXECUTE_ALIGNED ✅
+        </div>
+
+        <h3>3️⃣ معکوس (Reversed) - شرایط سخت‌تر شده</h3>
+        <p>اگر جهت کندل M15 مخالف سیگنال باشد، باید <strong>هر سه</strong> شرط زیر برقرار باشد:</p>
+        
+        <div class="formula">
+<strong>شرایط Reversed معتبر:</strong>
+
+1. body_ratio = abs(close - open) / (high - low) ≥ 0.55
+
+2. close position در 30% انتهایی:
+   • برای کندل صعودی: close_position ≥ 0.70 (در 30% بالایی)
+   • برای کندل نزولی: close_position ≤ 0.30 (در 30% پایینی)
+   
+   where: close_position = (close - low) / (high - low)
+
+3. candle_range = (high - low) ≥ avg_range_20
+
+اگر هر سه شرط True باشد → EXECUTE_REVERSED 🔄
+در غیر این صورت → REJECT ❌
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ مهم:</strong><br>
+            در نسخه قدیم فقط body &gt; 50% کافی بود، اما حالا سه شرط سخت‌گیرانه وجود دارد. این باعث می‌شود فقط کندل‌های قوی و معتبر برای معکوس کردن پوزیشن استفاده شوند.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2><span class="icon">📊</span>فلوچارت تصمیم‌گیری</h2>
+        
+        <div class="flow-chart">
+            <div class="flow-step filter0">
+                <strong>🔍 مرحله 1: فیلتر صفر</strong><br>
+                آیا کندل بی‌معنی است؟<br>
+                (body&lt;30% AND wick&gt;60% AND range&lt;70%avg)
+            </div>
+            <div class="arrow">↓ بله → REJECT</div>
+            <div class="arrow">↓ خیر</div>
+            
+            <div class="flow-step aligned">
+                <strong>✅ مرحله 2: بررسی همروندی</strong><br>
+                آیا جهت کندل M15 با سیگنال یکسان است؟
+            </div>
+            <div class="arrow">↓ بله → EXECUTE_ALIGNED</div>
+            <div class="arrow">↓ خیر (مخالف)</div>
+            
+            <div class="flow-step reversed">
+                <strong>🔄 مرحله 3: بررسی شرایط Reversed</strong><br>
+                آیا هر سه شرط برقرار است؟<br>
+                • body ≥ 55%<br>
+                • close در 30% انتهایی<br>
+                • range ≥ میانگین
+            </div>
+            <div class="arrow">↓ بله → EXECUTE_REVERSED</div>
+            <div class="arrow">↓ خیر → REJECT</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2><span class="icon">💻</span>تغییرات کد</h2>
+        
+        <h3>توابع جدید اضافه شده:</h3>
+        
+        <div class="code-block">
+<strong>1. calculate_avg_range(rates, current_idx, window=20)</strong>
+   محاسبه میانگین رنج 20 کندل قبلی
+   
+   Input:  rates (آرایه کندل‌ها), current_idx, window=20
+   Output: میانگین رنج
+   
+<strong>2. is_candle_meaningful(candle, avg_range)</strong>
+   بررسی معنادار بودن کندل (فیلتر صفر)
+   
+   Input:  candle (dict), avg_range (float)
+   Output: (is_meaningful: bool, reason: str)
+   
+<strong>3. is_reversed_valid(candle, avg_range)</strong>
+   بررسی شرایط سخت‌گیرانه Reversed
+   
+   Input:  candle (dict), avg_range (float)
+   Output: (is_valid: bool, reason: str)
+        </div>
+
+        <h3>تغییرات در توابع موجود:</h3>
+        
+        <div class="code-block">
+<strong>get_last_completed_m15_candle(symbol)</strong>
+   قدیم: دریافت 2 کندل M15
+   جدید: دریافت 22 کندل M15 (برای محاسبه میانگین)
+   
+   خروجی جدید: شامل 'avg_range' در dict
+
+<strong>apply_m15_filter(signal_direction, entry_price, original_sl, win_ratio, symbol)</strong>
+   قدیم: فقط بررسی همروندی و body > 50%
+   جدید: 
+     1. بررسی فیلتر صفر
+     2. بررسی همروندی
+     3. بررسی شرایط سخت Reversed (سه شرط)
+   
+   خروجی: action = 'EXECUTE_ALIGNED' | 'EXECUTE_REVERSED' | 'REJECT'
+        </div>
+    </div>
+
+    <div class="section">
+        <h2><span class="icon">📈</span>تاثیر تغییرات</h2>
+        
+        <h3>مزایای نسخه جدید:</h3>
+        <ul>
+            <li>✅ <strong>فیلتر بهتر کندل‌های نامعتبر:</strong> فیلتر صفر کندل‌های بی‌معنی را رد می‌کند</li>
+            <li>✅ <strong>Reversed دقیق‌تر:</strong> سه شرط سخت‌گیرانه باعث می‌شود فقط کندل‌های قوی برای معکوس استفاده شوند</li>
+            <li>✅ <strong>کاهش سیگنال‌های نادرست:</strong> تعداد معاملات کاهش می‌یابد اما کیفیت افزایش پیدا می‌کند</li>
+            <li>✅ <strong>استفاده از میانگین:</strong> رنج کندل با میانگین تاریخی مقایسه می‌شود</li>
+            <li>✅ <strong>تحلیل بهتر موقعیت close:</strong> بررسی می‌کند که close در کجای کندل است (30% انتهایی)</li>
+        </ul>
+
+        <h3>انتظارات از نسخه جدید:</h3>
+        <ul>
+            <li>📉 <strong>کاهش تعداد معاملات:</strong> به دلیل فیلترهای سخت‌تر</li>
+            <li>📈 <strong>افزایش Win Rate:</strong> معاملات با کیفیت بالاتر</li>
+            <li>🎯 <strong>کاهش Reversed نادرست:</strong> فقط کندل‌های قوی Reverse می‌شوند</li>
+            <li>🚫 <strong>رد کندل‌های دوجی/نامشخص:</strong> فیلتر صفر آن‌ها را شناسایی می‌کند</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2><span class="icon">📝</span>مثال‌های عملی</h2>
+        
+        <h3>مثال 1: کندل بی‌معنی (فیلتر صفر)</h3>
+        <div class="code-block">
+کندل M15: O=1.0500, H=1.0510, L=1.0495, C=1.0502
+سیگنال: BUY
+
+محاسبات:
+• body = |1.0502 - 1.0500| = 0.0002
+• range = 1.0510 - 1.0495 = 0.0015
+• body_ratio = 0.0002 / 0.0015 = 13.3% < 30% ✅
+• wick_total = 0.0015 - 0.0002 = 0.0013
+• wick_ratio = 0.0013 / 0.0015 = 86.7% > 60% ✅
+• avg_range = 0.0025
+• range_ratio = 0.0015 / 0.0025 = 60% < 70% ✅
+
+نتیجه: هر سه شرط برقرار → <span class="highlight">REJECT (فیلتر صفر)</span>
+        </div>
+
+        <h3>مثال 2: Reversed معتبر</h3>
+        <div class="code-block">
+کندل M15: O=1.0500, H=1.0550, L=1.0495, C=1.0545 (صعودی قوی)
+سیگنال: SELL
+avg_range = 0.0040
+
+محاسبات:
+• body = |1.0545 - 1.0500| = 0.0045
+• range = 1.0550 - 1.0495 = 0.0055
+• body_ratio = 0.0045 / 0.0055 = 81.8% ≥ 55% ✅
+• close_position = (1.0545 - 1.0495) / 0.0055 = 90.9% ≥ 70% ✅
+• range = 0.0055 ≥ 0.0040 (avg) ✅
+
+نتیجه: هر سه شرط برقرار → <span class="highlight">EXECUTE_REVERSED (BUY)</span>
+        </div>
+
+        <h3>مثال 3: Reversed نامعتبر</h3>
+        <div class="code-block">
+کندل M15: O=1.0500, H=1.0530, L=1.0495, C=1.0515 (صعودی ضعیف)
+سیگنال: SELL
+avg_range = 0.0040
+
+محاسبات:
+• body = |1.0515 - 1.0500| = 0.0015
+• range = 1.0530 - 1.0495 = 0.0035
+• body_ratio = 0.0015 / 0.0035 = 42.9% < 55% ❌
+
+نتیجه: شرط اول برقرار نیست → <span class="highlight">REJECT</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2><span class="icon">🔧</span>تنظیمات و پارامترها</h2>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>پارامتر</th>
+                    <th>مقدار</th>
+                    <th>توضیح</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>window (میانگین)</td>
+                    <td>20 کندل</td>
+                    <td>تعداد کندل‌های قبلی برای محاسبه میانگین رنج</td>
+                </tr>
+                <tr>
+                    <td>body_threshold_filter0</td>
+                    <td>30%</td>
+                    <td>حد بدنه در فیلتر صفر</td>
+                </tr>
+                <tr>
+                    <td>wick_threshold_filter0</td>
+                    <td>60%</td>
+                    <td>حد ویک در فیلتر صفر</td>
+                </tr>
+                <tr>
+                    <td>range_threshold_filter0</td>
+                    <td>70%</td>
+                    <td>حد رنج در فیلتر صفر (نسبت به میانگین)</td>
+                </tr>
+                <tr>
+                    <td>body_threshold_reversed</td>
+                    <td>55%</td>
+                    <td>حداقل بدنه برای Reversed</td>
+                </tr>
+                <tr>
+                    <td>close_position_threshold</td>
+                    <td>30%</td>
+                    <td>close باید در 30% انتهایی باشد</td>
+                </tr>
+                <tr>
+                    <td>min_range_reversed</td>
+                    <td>≥ avg</td>
+                    <td>رنج کندل باید حداقل برابر میانگین باشد</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="success">
+        <h2><span class="icon">✅</span>وضعیت پیاده‌سازی</h2>
+        <ul>
+            <li>✅ فایل <code>m15_filter_strategy.py</code> به‌روزرسانی شد</li>
+            <li>✅ فایل <code>test_bot_final.py</code> به‌روزرسانی شد</li>
+            <li>✅ فایل <code>main_metatrader_new.py</code> سازگار است</li>
+            <li>✅ Syntax بررسی و تایید شد</li>
+            <li>✅ مستندات HTML ایجاد شد</li>
+        </ul>
+    </div>
+
+    <div class="note">
+        <h3><span class="icon">📌</span>نکات مهم:</h3>
+        <ul>
+            <li>🔍 همیشه آخرین کندل <strong>تکمیل‌شده</strong> M15 استفاده می‌شود (نه کندل در حال تشکیل)</li>
+            <li>📊 میانگین از 20 کندل قبلی محاسبه می‌شود</li>
+            <li>⚙️ نام action از <code>EXECUTE_ORIGINAL</code> به <code>EXECUTE_ALIGNED</code> تغییر کرد</li>
+            <li>🎯 شرایط Reversed بسیار سخت‌تر شده است</li>
+            <li>🚫 کندل‌های بی‌معنی (دوجی، پین‌بار ضعیف) اکنون شناسایی و رد می‌شوند</li>
+        </ul>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; padding-top: 30px; border-top: 2px solid rgba(255,255,255,0.1);">
+        <p style="color: #888; font-size: 0.9em;">
+            تاریخ ایجاد: فوریه 2026<br>
+            نسخه: 2.0 (نهایی)<br>
+            محل استقرار: new_simple_bot_M15/
+        </p>
+    </div>
+</div>
+</body>
+</html>
