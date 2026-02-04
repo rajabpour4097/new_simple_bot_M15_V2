@@ -1,12 +1,11 @@
 """
-M15 Filter Strategy - نسخه نهایی
+M15 Filter Strategy - نسخه نهایی (اصلاح شده)
 
 این ماژول فیلتر M15 با قوانین زیر:
 
-1. فیلتر صفر (کندل بی‌معنی → SKIP):
-   - بدنه < 30% رنج
-   - ویک کل > 60% رنج  
-   - رنج کندل < 70% میانگین 20 کندل قبلی
+1. فیلتر صفر (کندل بی‌معنی → REJECT):
+   - (بدنه < 30% رنج AND ویک کل > 60% رنج) OR
+   - بدنه < 20% رنج
 
 2. کندل همروند سیگنال → EXECUTE_ALIGNED
 
@@ -96,10 +95,9 @@ def is_candle_meaningful(candle: Dict, avg_range: float) -> Tuple[bool, str]:
     """
     فیلتر صفر: بررسی معنادار بودن کندل
     
-    یک کندل بی‌معنی است اگر هر سه شرط برقرار باشد:
-    - بدنه < 30% رنج
-    - ویک کل > 60% رنج
-    - رنج کندل < 70% میانگین
+    یک کندل بی‌معنی است اگر:
+    - (بدنه < 30% رنج AND ویک کل > 60% رنج) OR
+    - بدنه < 20% رنج
     
     Returns:
         (is_meaningful, reason)
@@ -112,16 +110,17 @@ def is_candle_meaningful(candle: Dict, avg_range: float) -> Tuple[bool, str]:
     body = abs(candle['close'] - candle['open'])
     body_ratio = body / candle_range
     
+    # شرط مستقیم: بدنه خیلی ضعیف (< 20%)
+    if body_ratio < 0.20:
+        return False, f"بدنه خیلی ضعیف: {body_ratio:.0%} < 20%"
+    
     # ویک کل = رنج - بدنه
     wick_total = candle_range - body
     wick_ratio = wick_total / candle_range
     
-    # نسبت رنج به میانگین
-    range_ratio = candle_range / avg_range if avg_range > 0 else 1
-    
-    # شرایط رد کردن (کندل بی‌معنی)
-    if body_ratio < 0.30 and wick_ratio > 0.60 and range_ratio < 0.70:
-        return False, f"کندل بی‌معنی: body={body_ratio:.0%}, wick={wick_ratio:.0%}, range_ratio={range_ratio:.0%}"
+    # شرط ترکیبی: بدنه ضعیف + فیتیله بلند
+    if body_ratio < 0.30 and wick_ratio > 0.60:
+        return False, f"کندل بی‌معنی: body={body_ratio:.0%}, wick={wick_ratio:.0%}"
     
     return True, "معتبر"
 
@@ -402,8 +401,8 @@ if __name__ == '__main__':
         print("Failed to initialize MT5")
     else:
         print("MT5 initialized successfully")
-        print("\n=== نسخه نهایی فیلتر M15 ===")
-        print("فیلتر صفر: body<30% AND wick>60% AND range<70%avg → SKIP")
+        print("\n=== نسخه نهایی فیلتر M15 (اصلاح شده) ===")
+        print("فیلتر صفر: (body<30% AND wick>60%) OR (body<20%) → REJECT")
         print("همروند: → EXECUTE_ALIGNED")
         print("Reversed: body≥55% AND close در 30% انتهایی AND range≥avg → EXECUTE_REVERSED")
         print("در غیر این صورت: → REJECT")
